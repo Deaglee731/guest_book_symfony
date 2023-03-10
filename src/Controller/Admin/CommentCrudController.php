@@ -42,7 +42,7 @@ class CommentCrudController extends AbstractCrudController
         yield EmailField::new('email');
         yield TextareaField::new('text')
             ->hideOnIndex();
-        yield TextField::new('photoFIlename')
+        yield TextField::new('photoFilename')
             ->onlyOnIndex();
         $createdAt = DateTimeField::new('createdAt')->setFormTypeOptions([
             'html5' => true,
@@ -51,7 +51,7 @@ class CommentCrudController extends AbstractCrudController
         ]);
 
         if (Crud::PAGE_EDIT === $pageName) {
-            yield  $createdAt->setFormTypeOptions('disable', true);
+            yield  $createdAt->setFormTypeOption('disable', true);
         } else {
             yield $createdAt;
         }
